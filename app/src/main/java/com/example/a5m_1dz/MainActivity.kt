@@ -1,13 +1,12 @@
 package com.example.a5m_1dz
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.style.BackgroundColorSpan
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.green
 import androidx.core.graphics.toColor
 import com.example.a5m_1dz.databinding.ActivityMainBinding
 
@@ -36,13 +35,20 @@ class MainActivity : AppCompatActivity(), CounterView {
 
     override fun showNewCount(count: Int) {
         binding.tvResult.text = count.toString()
-        if (count == 10)
-            Toast.makeText(applicationContext, "Поздравляем!", Toast.LENGTH_SHORT)
-                .show()
-
-        if (count == 15){
-            val exampleTxt: TextView = findViewById<TextView>(R.id.tv_result)
-        exampleTxt.setTextColor(Color.parseColor("#04870A"))
-        }
+//        if (count == 10)
+//            Toast.makeText(applicationContext, "Поздравляем!", Toast.LENGTH_SHORT)
+//                .show()
+//
+//        if (count == 15){
+//            val exampleTxt: TextView = findViewById<TextView>(R.id.tv_result)
+//            exampleTxt.setTextColor(Color.parseColor("#04870A"))
+//        }
     }
+
+    override fun showToast(toast: String) {
+        Toast.makeText(applicationContext, toast, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showColor(color: Int) = binding.tvResult.setTextColor(color)
+
 }
